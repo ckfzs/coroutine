@@ -119,7 +119,7 @@ static void _coroutine_entry(uintptr_t *arg) {
     // 调用协程的函数
     co->func(co->arg);
     // 协程函数运行完毕后, 删除协程
-    free(co);
+    _coroutine_delete(co);
     s->cos[cid] = NULL;
     s->running = -1;
 }
